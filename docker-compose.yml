@@ -9,7 +9,7 @@ services:
             POSTGRES_PASSWORD: password 
             PGDATA: /var/lib/postgresql/data
         volumes:
-            - pg-data:/var/lib/postgresql/data
+            - ./pg-data:/var/lib/postgresql/data
         ports:
             - "5432:5432"
     pgadmin:
@@ -22,7 +22,7 @@ services:
         ports:
             - "8080:80"
         volumes:
-            - pgadmin-data:/var/lib/pgadmin
+            - ./pgadmin-data:/var/lib/pgadmin
         links:
             - "db:pgsql-server"
 volumes:
